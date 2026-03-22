@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="dashboard">
+    <div class="navbar">
+        <div class="brand">Spring Security App</div>
+        <div class="nav-links">
+            <a th:href="@{/}">Accueil</a>
+            <a th:href="@{/user/dashboard}">Espace User</a>
+            <a th:href="@{/admin/dashboard}">Espace Admin</a>
+            <form th:action="@{/logout}" method="post" class="logout-form">
+                <button type="submit" class="logout-btn">Déconnexion</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>Bienvenue</h1>
+        <p>
+            Cette application démontre une authentification en mémoire avec Spring Security,
+            une page de connexion personnalisée et une gestion des accès selon les rôles.
+        </p>
+
+        <div class="actions">
+            <a th:href="@{/user/dashboard}" class="btn-small">Voir l'espace utilisateur</a>
+            <a th:href="@{/admin/dashboard}" class="btn-outline">Voir l'espace administrateur</a>
+        </div>
+    </div>
+
+    <div class="cards">
+        <div class="info-card">
+            <h3>USER</h3>
+            <p>Accès à l'espace utilisateur pour les rôles USER et ADMIN.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>ADMIN</h3>
+            <p>Accès réservé uniquement au rôle ADMIN pour les fonctionnalités sensibles.</p>
+        </div>
+
+        <div class="info-card">
+            <h3>Sécurité</h3>
+            <p>Spring Security contrôle l’authentification, l’autorisation et la déconnexion.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
